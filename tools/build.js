@@ -9,7 +9,7 @@ console.log(chalk.green('Start building app'));
 webpack(config).run((error, stats) => {
   if (error) {
     console.log(chalk.red('┻━┻ ︵ ლ(ಠ益ಠლ)'));
-    console.log(chalk.bgRed(error));
+    console.log(chalk.red(error));
     return 1;
   }
 
@@ -21,7 +21,7 @@ webpack(config).run((error, stats) => {
 
   if (stats.hasErrors()) {
     console.log(chalk.red('┻━┻ ︵ ლ(ಠ益ಠლ)'));
-    return jsonStats.errors.map((err) => console.log(chalk.bgRed(err)));
+    return jsonStats.errors.map((err) => console.log(chalk.red(err)));
   }
 
   console.log('');

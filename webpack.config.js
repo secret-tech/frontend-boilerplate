@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const HtmlPlugin = require('html-webpack-plugin');
+const FaviconsPlugin = require('favicons-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 
 const entry = [
@@ -42,13 +43,14 @@ const plugins = [
     quiet: false
   }),
   new HtmlPlugin({
-    template: 'src/index.html',
+    template: './src/index.html',
     minify: {
       removeComments: true,
       collapseWhitespace: true
     },
     inject: true
-  })
+  }),
+  new FaviconsPlugin('./src/assets/favicon.png')
 ];
 
 const webpackModule = {
@@ -67,6 +69,7 @@ const webpackModule = {
     {
       test: /\.css$/,
       include: /src/,
+      exclude: /src\/assets/,
       use: [
         { loader: 'style-loader' },
         {
@@ -83,7 +86,7 @@ const webpackModule = {
     },
     {
       test: /\.css$/,
-      include: /node_modules/,
+      include: /(src\/assets|node_modules)/,
       use: ['style-loader', 'css-loader']
     },
     {

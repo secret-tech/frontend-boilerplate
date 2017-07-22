@@ -1,0 +1,47 @@
+@use postcss-short;
+
+.landing {
+  size: 100%;
+  background-color: #0084a2;
+}
+
+.container {
+  position: relative;
+  width: 800px;
+  margin: 0 auto;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.lang {
+  position: absolute 30px 30px * *;
+}
+
+.title {
+  font: 100 48px Roboto;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.description {
+  margin-top: 20px;
+  font: 100 18px Roboto;
+  color: #fff;
+}
+
+.counterWrapper {
+  text-align: center;
+}
+
+.button {
+  font: 100 36px Roboto;
+  background-color: transparent;
+  border: none;
+  margin: 0 10px;
+  color: #fff;
+}
+
+.counter {
+  font: 100 36px Roboto;
+  color: #fff;
+}
