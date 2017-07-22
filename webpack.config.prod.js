@@ -3,6 +3,8 @@ const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
+const FaviconsPlugin = require('favicons-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const Md5HashPlugin = require('webpack-md5-hash');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -37,7 +39,7 @@ const plugins = [
     allChunks: true
   }),
   new HtmlPlugin({
-    template: 'src/index.html',
+    template: './src/index.html',
     minify: {
       removeComments: true,
       collapseWhitespace: true,
@@ -52,6 +54,11 @@ const plugins = [
     },
     inject: true
   }),
+  new CopyPlugin([
+    { from: 'src/locales', to: 'locales' },
+    { from: 'src/assets/images', to: 'images' }
+  ]),
+  new FaviconsPlugin('./src/assets/favicon.png'),
   new UglifyJsPlugin()
 ];
 
@@ -71,6 +78,7 @@ const webpackModule = {
     {
       test: /\.css$/,
       include: /src/,
+      exclude: /src\/assets/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
@@ -90,7 +98,7 @@ const webpackModule = {
     },
     {
       test: /\.css$/,
-      include: /node_modules/,
+      include: /(src\/assets|node_modules)/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: 'css-loader'

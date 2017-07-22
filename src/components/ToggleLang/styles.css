@@ -1,0 +1,12 @@
+.toggle {
+  margin: 0 -5px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font: 100 14px Roboto;
+  padding: 0;
+  margin: 0 5px;
+}
