@@ -1,28 +1,35 @@
-const webpack = require('webpack');
-const browserSync = require('browser-sync');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('../webpack.config');
+import browserSync from 'browser-sync';
+import connectHistoryApiFallback from 'connect-history-api-fallback';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+
+import config from './webpack/webpack.config.dev';
 
 const bundler = webpack(config);
 
 browserSync({
   port: 3000,
-  ui: {
-    port: 3001
-  },
+  ui: { port: 3001 },
   server: {
     baseDir: 'src',
     middleware: [
+      connectHistoryApiFallback(),
       webpackDevMiddleware(bundler, {
         publicPath: config.output.publicPath,
-        noInfo: false,
+        noInfo: true,
         quiet: false,
-        stats: 'minimal'
+        stats: {
+          assets: false,
+          colors: true,
+          version: false,
+          hash: false,
+          timings: false,
+          chunks: false,
+          chunkModules: false
+        }
       }),
-      webpackHotMiddleware(bundler, {
-        reload: true
-      })
+      webpackHotMiddleware(bundler)
     ]
   },
   files: [
