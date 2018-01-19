@@ -2,30 +2,27 @@
 
 A simple boilerplate to create static frontend applications.
 
-### Stack
-
-- **React**
-- **Redux [ducks](https://github.com/erikras/ducks-modular-redux)**
-- **Redux Saga**
-- **Webpack 3**
-- **I18next**
-- **[Seamless Immutable](https://github.com/rtfeldman/seamless-immutable)**
-
 ### Scripts
 
-``npm install``
+``yarn start`` - start application in development mode
 
-``npm start`` - start application in development mode
+``yarn build`` - build application into `/dist` directory
 
-``npm run build`` - build application into `/dist` directory
+``yarn build:clean`` - remove prev `/dist` and build application
 
-``npm run eslint`` - run eslint
+``yarn serve`` - serve `/dist` directory. Requires build application before run
 
-``npm run stylelint`` - run stylelint
+``yarn lint:js`` - run eslint
 
-### Example
+``yarn lint:css`` - run stylelint
 
-Source code contains an example of a simple counter that is in the application store. To demonstrate side-effects during actions, a console.log when is firing.
+``yarn lint:all`` - run eslint and stylelint concurrently
+
+``yarn test`` - run jest
+
+``yarn test:coverage`` - jest coverage
+
+``yarn test:watch`` - jest in watch mode
 
 ______________________________
 

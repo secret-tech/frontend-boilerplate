@@ -1,32 +1,29 @@
-const webpack = require('webpack');
-const chalk = require('chalk');
-const config = require('../webpack.config.prod.js');
+import webpack from 'webpack';
+import chalk from 'chalk';
+import config from './webpack/webpack.config.prod';
 
 process.env.NODE_ENV = 'production';
 
-console.log(chalk.green('Start building app'));
+console.log(chalk.green('Building application...'));
 
 webpack(config).run((error, stats) => {
   if (error) {
-    console.log(chalk.red('┻━┻  ︵ ლ(ಠ益ಠლ)'));
     console.log(chalk.red(error));
     return 1;
   }
 
   const jsonStats = stats.toJson();
 
-  if (stats.hasWarnings()) {
+  if (stats.hasWarnings) {
+    console.log('Bundle generated with following warnings: ');
     jsonStats.warnings.map((warn) => console.log(chalk.yellow(warn)));
   }
 
   if (stats.hasErrors()) {
-    console.log(chalk.red('┻━┻ ︵ ლ(ಠ益ಠლ)'));
     return jsonStats.errors.map((err) => console.log(chalk.red(err)));
   }
 
-  console.log('');
-  console.log(chalk.bgGreen('                                                           '));
-  console.log(chalk.bgGreen('   App is compiled in production mode in /dist directory   '));
-  console.log(chalk.bgGreen('                                                           '));
-  console.log('');
+  console.log(`Webpack stats: ${stats}`);
+  console.log(chalk.green('Application builded in /dist'));
+  return 0;
 });

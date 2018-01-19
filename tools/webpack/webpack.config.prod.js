@@ -4,10 +4,10 @@ import WebpackMd5Hash from 'webpack-md5-hash';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 
-const entry = path.resolve(__dirname, 'src/index');
+const entry = path.resolve(__dirname, '../../src/index');
 const target = 'web';
 const output = {
-  path: path.resolve(__dirname, 'dist'),
+  path: path.resolve(__dirname, '../../dist'),
   publicPath: '/',
   filename: '[name].[chunkhash].js'
 };
@@ -24,7 +24,7 @@ const plugins = [
   new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
   new HtmlWebpackPlugin({
     template: 'src/index.html',
-    favicon: 'src/favicon.ico',
+    favicon: 'src/assets/favicon.png',
     minify: {
       removeComments: true,
       collapseWhitespace: true,
