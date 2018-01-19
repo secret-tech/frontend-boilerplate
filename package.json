@@ -8,9 +8,11 @@
   "scripts": {
     "start": "babel-node tools/start.js",
     "build": "babel-node tools/build.js",
-    "eslint": "esw src tools --color",
-    "stylelint": "stylelint 'src/**/*.css'"
+    "lint:js": "esw src tools --color",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "lint:all": "concurrently -r \"yarn run lint:js\" \"yarn run lint:css\""
   },
+  "pre-commit": ["lint:all"],
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -33,6 +35,7 @@
     "eslint-watch": "^3.1.3",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
+    "pre-commit": "^1.2.2",
     "react-hot-loader": "^3.1.3",
     "stylelint": "^8.4.0",
     "stylelint-config-css-modules": "^1.1.0",
