@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
 import path from 'path';
 
 const entry = [
@@ -24,6 +25,7 @@ const plugins = [
   }),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
+  new StylelintWebpackPlugin(),
   new HtmlWebpackPlugin({
     template: 'src/index.html',
     minify: {
