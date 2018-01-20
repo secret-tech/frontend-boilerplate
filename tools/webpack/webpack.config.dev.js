@@ -41,6 +41,26 @@ const rules = [
     test: /\.js?$/,
     exclude: /node_modules/,
     use: ['babel-loader']
+  },
+  {
+    test: /\.css?$/,
+    include: /src/,
+    exclude: /src\/assets/,
+    use: [
+      'style-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          importLoaders: 1,
+          localIdentName: '[local]__[hash:base64:5]',
+          sourceMap: true
+        }
+      },
+      {
+        loader: 'postcss-loader'
+      }
+    ]
   }
 ];
 

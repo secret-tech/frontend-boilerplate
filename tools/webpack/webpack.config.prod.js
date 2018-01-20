@@ -46,6 +46,30 @@ const rules = [
     test: /\.js?$/,
     exclude: /node_modules/,
     use: ['babel-loader']
+  },
+  {
+    test: /\.css?$/,
+    include: /src/,
+    exclude: /src\/assets/,
+    use: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: [
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            importLoaders: 1,
+            localIdentName: '[local]__[hash:base64:5]',
+            minimize: true,
+            sourceMap: true
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: { sourceMap: true }
+        }
+      ]
+    })
   }
 ];
 
