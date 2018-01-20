@@ -15,7 +15,8 @@
     "lint:all": "concurrently -r \"yarn run lint:js\" \"yarn run lint:css\"",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "analyze": "babel-node tools/analyze.js"
   },
   "pre-commit": {
     "run": "lint:all, test"
@@ -68,6 +69,7 @@
     "stylelint-config-standard": "^18.0.0",
     "stylelint-webpack-plugin": "^0.10.1",
     "webpack": "^3.10.0",
+    "webpack-bundle-analyzer": "^2.9.2",
     "webpack-dev-middleware": "^2.0.4",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-md5-hash": "^0.0.6"
