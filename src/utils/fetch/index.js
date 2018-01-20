@@ -67,6 +67,6 @@ export const putFn = (path, body) =>
  */
 
 export const del = (path) =>
-  (apiFetch(path), {
+  (apiFetch(path, {
     method: 'DELETE'
-  });
+  }));

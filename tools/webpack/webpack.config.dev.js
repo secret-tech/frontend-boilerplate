@@ -8,6 +8,7 @@ const entry = [
   path.resolve(__dirname, '../../src/webpack-public-path'),
   'react-hot-loader/patch',
   'webpack-hot-middleware/client?reload=true',
+  'babel-polyfill',
   path.resolve(__dirname, '../../src/index.js')
 ];
 const target = 'web';

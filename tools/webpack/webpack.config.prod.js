@@ -5,7 +5,10 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 import path from 'path';
 
-const entry = path.resolve(__dirname, '../../src/index');
+const entry = [
+  'babel-polyfill',
+  path.resolve(__dirname, '../../src/index')
+];
 const target = 'web';
 const output = {
   path: path.resolve(__dirname, '../../dist'),

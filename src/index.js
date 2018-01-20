@@ -1,23 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 
 import 'normalize.css';
 import './assets/main.css';
 import './assets/fonts/Roboto/stylesheet.css';
 
-// import configureStore from './redux/configureStore';
+import configureStore from './redux/configureStore';
 import App from './containers/App';
 
-// const store = configureStore({});
-
-console.info(process.env.API_HOST);
+const store = configureStore({});
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      <Component/>
+      <Provider store={store}>
+        <Component/>
+      </Provider>
     </AppContainer>,
     document.getElementById('app')
   );
