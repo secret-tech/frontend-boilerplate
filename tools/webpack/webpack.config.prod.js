@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 import path from 'path';
 
 const entry = path.resolve(__dirname, '../../src/index');
@@ -15,6 +16,10 @@ const devtool = 'source-map';
 const resolve = { extensions: ['*', '.js', '.jsx', '.json'] };
 
 const plugins = [
+  new Dotenv({
+    path: '.env',
+    systemvars: true
+  }),
   new WebpackMd5Hash(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('production'),

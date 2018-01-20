@@ -2,6 +2,14 @@
 
 A simple boilerplate to create static frontend applications.
 
+### Environment variables
+
+``cp .env.example .env`` - copy example dotenv file and specify your own values in `.env`
+
+You can use different environment variables. Create `.env.stage`, `.env.prod` and `.env.dev` and copy the file you need.
+
+To access values inside application call `console.log(process.env)`. 
+
 ### Scripts
 
 ``yarn start`` - start application in development mode
@@ -23,6 +31,8 @@ A simple boilerplate to create static frontend applications.
 ``yarn test:coverage`` - jest coverage
 
 ``yarn test:watch`` - jest in watch mode
+
+``yarn analyze`` - analyze webpack bundle
 
 ______________________________
 

@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 import path from 'path';
 
 const entry = [
@@ -19,6 +20,10 @@ const devtool = 'cheap-module-eval-source-map';
 const resolve = { extensions: ['*', '.js', '.jsx', '.json'] };
 
 const plugins = [
+  new Dotenv({
+    path: '.env',
+    systemvars: true
+  }),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('development'),
     __DEV__: true

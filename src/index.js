@@ -15,6 +15,8 @@ import App from './containers/App';
 
 // const store = configureStore({});
 
+console.info(process.env.API_HOST);
+
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
