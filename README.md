@@ -1,6 +1,10 @@
 # Frontend static boilerplate
 
-A simple boilerplate to create static frontend applications.
+A simple boilerplate to create frontend applications.
+
+### Commit hooks
+
+That boilerplate uses pre-commit hooks and run some scripts before making git commit. To see what is started before commit check package.json pre-commit block. Default - `yarn lint:all` and `yarn test`. To ignore the check, use `-n` e.g `git commit -n -m 'Your amazing commit msg'`.
 
 ### Environment variables
 
@@ -8,7 +12,7 @@ A simple boilerplate to create static frontend applications.
 
 You can use different environment variables. Create `.env.stage`, `.env.prod` and `.env.dev` and copy the file you need.
 
-To access values inside application call `console.log(process.env)`. 
+To access values inside application call `console.log(process.env)`.
 
 ### Scripts
 
