@@ -22,8 +22,11 @@
     "run": "lint:all, test"
   },
   "dependencies": {
+    "file-loader": "^1.1.6",
+    "normalize.css": "^7.0.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "url-loader": "^0.6.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
