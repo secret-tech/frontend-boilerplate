@@ -58,7 +58,10 @@ const rules = [
         }
       },
       {
-        loader: 'postcss-loader'
+        loader: 'postcss-loader',
+        options: {
+          config: { path: 'tools/postcss.config.js' }
+        }
       }
     ]
   },

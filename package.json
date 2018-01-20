@@ -123,5 +123,62 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
       "\\.(css)$": "<rootDir>/tools/assetsTransformer.js"
     }
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest/globals": true
+    },
+    "plugins": [
+  	  "react",
+      "jest"
+    ],
+    "rules": {
+      "comma-dangle": 0,
+      "import/imports-first": 0,
+      "global-require": 0,
+      "class-methods-use-this": 0,
+      "arrow-body-style": [2, "as-needed"],
+      "arrow-parens": ["error", "always"],
+      "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+      "no-debugger": 0,
+      "no-console": 0,
+      "new-cap": 0,
+      "strict": 0,
+      "no-param-reassign": ["error", { "props": false }],
+      "no-underscore-dangle": 0,
+      "no-use-before-define": 0,
+      "eol-last": 0,
+      "quotes": [2, "single"],
+      "jsx-quotes": [0, "prefer-single"],
+      "react/jsx-no-undef": 1,
+      "react/jsx-uses-react": 1,
+      "react/jsx-uses-vars": 1
+    }
+  },
+  "stylelint": {
+    "extends": ["stylelint-config-standard", "stylelint-config-css-modules"],
+    "rules": {
+      "color-named": "never",
+      "font-family-name-quotes": "always-where-required",
+      "font-weight-notation": "named-where-possible",
+      "function-url-no-scheme-relative": true,
+      "function-url-quotes": "always",
+      "string-quotes": "single",
+      "value-keyword-case": "lower",
+      "unit-blacklist": [],
+      "max-empty-lines": 2,
+      "no-descending-specificity": true,
+      "no-duplicate-selectors": true,
+      "at-rule-no-unknown": [true, {
+        "ignoreAtRules": ["use", "for"]
+      }]
+    },
+    "ignoreFiles": ["node_modules/*", "src/assets/**"],
+    "defaultSeverity": "error"
   }
 }

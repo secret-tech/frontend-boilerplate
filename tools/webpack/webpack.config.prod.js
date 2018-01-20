@@ -66,7 +66,10 @@ const rules = [
         },
         {
           loader: 'postcss-loader',
-          options: { sourceMap: true }
+          options: {
+            sourceMap: true,
+            config: { path: 'tools/postcss.config.js' }
+          }
         }
       ]
     })
