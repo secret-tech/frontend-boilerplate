@@ -72,20 +72,20 @@ const rules = [
     ]
   },
   {
+    test: /\.css$/,
+    include: /(src\/assets|node_modules)/,
+    use: [
+      { loader: 'style-loader' },
+      { loader: 'css-loader' }
+    ]
+  },
+  {
     test: /\.(jpe?g|png|gif|ico)$/i,
     use: [
       {
         loader: 'file-loader',
         options: { name: '[name].[ext]' }
       }
-    ]
-  },
-  {
-    test: /\.css$/,
-    include: /(src\/assets|node_modules)/,
-    use: [
-      { loader: 'style-loader' },
-      { loader: 'css-loader' }
     ]
   },
   {

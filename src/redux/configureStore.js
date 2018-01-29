@@ -1,11 +1,14 @@
 import { createStore, applyMiddleware } from 'redux';
+import createHistory from 'history/createBrowserHistory';
 import createSagaMiddleware from 'redux-saga';
+import { routerMiddleware } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
 import { stateTransformer } from 'redux-seamless-immutable';
 
 import rootReducer from './rootReducer';
 import rootSaga from '../sagas/rootSaga';
 
+export const history = createHistory();
 const sagaMiddleware = createSagaMiddleware();
 const loggerMiddleware = createLogger({
   stateTransformer,
@@ -13,7 +16,10 @@ const loggerMiddleware = createLogger({
 });
 
 const configureStoreProduction = (initialState) => {
-  const middlewares = [sagaMiddleware];
+  const middlewares = [
+    sagaMiddleware,
+    routerMiddleware(history)
+  ];
 
   const store = createStore(
     rootReducer,
@@ -27,7 +33,11 @@ const configureStoreProduction = (initialState) => {
 };
 
 const configureStoreDev = (initialState) => {
-  const middlewares = [sagaMiddleware, loggerMiddleware];
+  const middlewares = [
+    sagaMiddleware,
+    routerMiddleware(history),
+    loggerMiddleware
+  ];
 
   const store = createStore(
     rootReducer,
