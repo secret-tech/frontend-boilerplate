@@ -1,10 +1,20 @@
+import { isAuth, getToken } from '../auth';
+
+const { API_HOST } = process.env;
+
 export class RequestError extends Error {
   constructor(error) {
-    super(error.message);
+    super(error.error);
 
     this.errors = error.errors;
     this.status = error.status_code;
   }
+}
+
+export function pathCreator(path) {
+  const correctPath = path[0] === '/' ? path : `/${path}`;
+
+  return `${API_HOST}${correctPath}`;
 }
 
 /**
@@ -32,3 +42,9 @@ export const parseJSON = (res) => {
 
   throw new RequestError(res);
 };
+
+export function authHeader() {
+  return isAuth()
+    ? { Authorization: `Bearer ${getToken()}` }
+    : {};
+}

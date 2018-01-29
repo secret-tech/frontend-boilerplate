@@ -1,32 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
 
 import 'normalize.css';
 import './assets/main.css';
 import './assets/fonts/Roboto/stylesheet.css';
 
-import configureStore from './redux/configureStore';
-import App from './containers/App';
+import configureStore, { history } from './redux/configureStore';
+import routes from './routes';
 
 const store = configureStore({});
 
-const render = (Component) => {
+const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <Component/>
+        <ConnectedRouter history={history}>
+          {routes}
+        </ConnectedRouter>
       </Provider>
     </AppContainer>,
     document.getElementById('app')
   );
 };
 
-render(App);
+render();
 
 if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    render(require('./containers/App').default);
+  module.hot.accept('./routes', () => {
+    render(require('./routes').default);
   });
 }
