@@ -1,28 +1,34 @@
 import { createStore, applyMiddleware } from 'redux';
 import createHistory from 'history/createBrowserHistory';
 import createSagaMiddleware from 'redux-saga';
-import { routerMiddleware } from 'react-router-redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router/immutable';
 import { createLogger } from 'redux-logger';
-import { stateTransformer } from 'redux-seamless-immutable';
+import Immutable from 'immutable';
 
 import rootReducer from './rootReducer';
 import rootSaga from '../sagas/rootSaga';
 
-export const history = createHistory();
+const stateTransformer = (state) => {
+  if (Immutable.Iterable.isIterable(state)) return state.toJS();
+  return state;
+};
+
+const history = createHistory();
+const initialState = Immutable.Map();
 const sagaMiddleware = createSagaMiddleware();
 const loggerMiddleware = createLogger({
-  stateTransformer,
-  collapsed: true
+  collapsed: true,
+  stateTransformer
 });
 
-const configureStoreProduction = (initialState) => {
+const configureStoreProduction = () => {
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history)
   ];
 
   const store = createStore(
-    rootReducer,
+    connectRouter(history)(rootReducer),
     initialState,
     applyMiddleware(...middlewares)
   );
@@ -32,7 +38,7 @@ const configureStoreProduction = (initialState) => {
   return store;
 };
 
-const configureStoreDev = (initialState) => {
+const configureStoreDev = () => {
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history),
@@ -40,7 +46,7 @@ const configureStoreDev = (initialState) => {
   ];
 
   const store = createStore(
-    rootReducer,
+    connectRouter(history)(rootReducer),
     initialState,
     applyMiddleware(...middlewares)
   );
@@ -57,8 +63,8 @@ const configureStoreDev = (initialState) => {
   return store;
 };
 
-const configureStore = process.env.NODE_ENV === 'development'
-  ? configureStoreDev
-  : configureStoreProduction;
+const store = process.env.NODE_ENV === 'development'
+  ? configureStoreDev()
+  : configureStoreProduction();
 
-export default configureStore;
+export { store, history };

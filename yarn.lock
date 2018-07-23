@@ -1838,6 +1838,13 @@ connect@3.5.0:
     parseurl "~1.3.1"
     utils-merge "1.0.0"
 
+connected-react-router@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/connected-react-router/-/connected-react-router-4.3.0.tgz#a3bcba9e82ec5ee9f2018daeeddca827a7ef6235"
+  dependencies:
+    immutable "^3.8.1"
+    react-router "^4.2.0"
+
 console-browserify@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.1.0.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
@@ -3399,9 +3406,13 @@ hoek@4.x.x:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.0.tgz#72d9d0754f7fe25ca2d01ad8f8f9a9449a89526d"
 
-hoist-non-react-statics@^2.2.1, hoist-non-react-statics@^2.3.0, hoist-non-react-statics@^2.3.1:
+hoist-non-react-statics@^2.3.0, hoist-non-react-statics@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.1.tgz#343db84c6018c650778898240135a1420ee22ce0"
+
+hoist-non-react-statics@^2.5.0:
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -3542,7 +3553,7 @@ ignore@^3.3.3, ignore@^3.3.5:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.7.tgz#612289bfb3c220e186a58118618d5be8c1bab021"
 
-immutable@3.8.2, immutable@^3.7.6:
+immutable@3.8.2, immutable@^3.7.6, immutable@^3.8.1, immutable@^3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
 
@@ -3611,7 +3622,13 @@ interpret@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.1.0.tgz#7ed1b1410c6a0e0f78cf95d3b8440c63f78b8614"
 
-invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
+invariant@^2.0.0, invariant@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
+  dependencies:
+    loose-envify "^1.0.0"
+
+invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -4198,6 +4215,10 @@ js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
+"js-tokens@^3.0.0 || ^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
+
 js-yaml@^3.4.3, js-yaml@^3.7.0, js-yaml@^3.9.0, js-yaml@^3.9.1:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
@@ -4430,9 +4451,13 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.17.3, lodash-es@^4.2.0, lodash-es@^4.2.1:
+lodash-es@^4.17.3:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
+
+lodash-es@^4.17.5:
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
 
 lodash._reinterpolate@~3.0.0:
   version "3.0.0"
@@ -4483,9 +4508,13 @@ lodash@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.1, lodash@^4.6.1:
+lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.5.1, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+lodash@^4.17.5:
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
 log-symbols@^2.0.0, log-symbols@^2.1.0:
   version "2.1.0"
@@ -4505,11 +4534,17 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1:
+loose-envify@^1.0.0, loose-envify@^1.2.0, loose-envify@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
     js-tokens "^3.0.0"
+
+loose-envify@^1.1.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
+  dependencies:
+    js-tokens "^3.0.0 || ^4.0.0"
 
 loud-rejection@^1.0.0, loud-rejection@^1.6.0:
   version "1.6.0"
@@ -6029,11 +6064,18 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.9, prop-types@^15.6.0:
+prop-types@^15.5.4, prop-types@^15.5.9, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
     fbjs "^0.8.16"
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
+prop-types@^15.6.1:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
+  dependencies:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
@@ -6163,9 +6205,9 @@ react-deep-force-update@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.1.1.tgz#8ea4263cd6455a050b37445b3f08fd839d86e909"
 
-react-dom@^16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.2.0.tgz#69003178601c0ca19b709b33a83369fe6124c044"
+react-dom@^16.4.1:
+  version "16.4.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.1.tgz#7f8b0223b3a5fbe205116c56deb85de32685dad6"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -6195,39 +6237,31 @@ react-proxy@^3.0.0-alpha.0:
   dependencies:
     lodash "^4.6.1"
 
-react-redux@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.6.tgz#23ed3a4f986359d68b5212eaaa681e60d6574946"
+react-redux@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
   dependencies:
-    hoist-non-react-statics "^2.2.1"
+    hoist-non-react-statics "^2.5.0"
     invariant "^2.0.0"
-    lodash "^4.2.0"
-    lodash-es "^4.2.0"
+    lodash "^4.17.5"
+    lodash-es "^4.17.5"
     loose-envify "^1.1.0"
-    prop-types "^15.5.10"
+    prop-types "^15.6.0"
 
-react-router-dom@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.2.2.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"
+react-router-dom@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.3.1.tgz#4c2619fc24c4fa87c9fd18f4fb4a43fe63fbd5c6"
   dependencies:
     history "^4.7.2"
-    invariant "^2.2.2"
+    invariant "^2.2.4"
     loose-envify "^1.3.1"
-    prop-types "^15.5.4"
-    react-router "^4.2.0"
-    warning "^3.0.0"
+    prop-types "^15.6.1"
+    react-router "^4.3.1"
+    warning "^4.0.1"
 
 react-router-redux@^4.0.0:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-4.0.8.tgz#227403596b5151e182377dab835b5d45f0f8054e"
-
-react-router-redux@^5.0.0-alpha.9:
-  version "5.0.0-alpha.9"
-  resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-5.0.0-alpha.9.tgz#825431516e0e6f1fd93b8807f6bd595e23ec3d10"
-  dependencies:
-    history "^4.7.2"
-    prop-types "^15.6.0"
-    react-router "^4.2.0"
 
 react-router@^4.2.0:
   version "4.2.0"
@@ -6241,6 +6275,18 @@ react-router@^4.2.0:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
+react-router@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.3.1.tgz#aada4aef14c809cb2e686b05cee4742234506c4e"
+  dependencies:
+    history "^4.7.2"
+    hoist-non-react-statics "^2.5.0"
+    invariant "^2.2.4"
+    loose-envify "^1.3.1"
+    path-to-regexp "^1.7.0"
+    prop-types "^15.6.1"
+    warning "^4.0.1"
+
 react-transform-catch-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-transform-catch-errors/-/react-transform-catch-errors-1.0.2.tgz#1b4d4a76e97271896fc16fe3086c793ec88a9eeb"
@@ -6252,9 +6298,9 @@ react-transform-hmr@^1.0.3:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@^16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
+react@^16.4.1:
+  version "16.4.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -6396,6 +6442,10 @@ redux-form@^7.2.1:
     lodash-es "^4.17.3"
     prop-types "^15.5.9"
 
+redux-immutable@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/redux-immutable/-/redux-immutable-4.0.0.tgz#3a1a32df66366462b63691f0e1dc35e472bbc9f3"
+
 redux-logger@^3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-3.0.6.tgz#f7555966f3098f3c88604c449cf0baf5778274bf"
@@ -6413,14 +6463,12 @@ redux-seamless-immutable@^0.3.2:
     react-router-redux "^4.0.0"
     seamless-immutable "^7.1.2"
 
-redux@^3.7.2:
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
+redux@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.0.tgz#aa698a92b729315d22b34a0553d7e6533555cc03"
   dependencies:
-    lodash "^4.2.1"
-    lodash-es "^4.2.1"
     loose-envify "^1.1.0"
-    symbol-observable "^1.0.3"
+    symbol-observable "^1.2.0"
 
 regenerate@^1.2.1:
   version "1.3.3"
@@ -7333,9 +7381,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-symbol-observable@^1.0.3:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.1.0.tgz#5c68fd8d54115d9dfb72a84720549222e8db9b32"
+symbol-observable@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
 symbol-tree@^3.2.1:
   version "3.2.2"
@@ -7776,6 +7824,12 @@ walker@~1.0.5:
 warning@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
+  dependencies:
+    loose-envify "^1.0.0"
+
+warning@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.1.tgz#66ce376b7fbfe8a887c22bdf0e7349d73d397745"
   dependencies:
     loose-envify "^1.0.0"
 

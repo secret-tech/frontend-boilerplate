@@ -22,18 +22,20 @@
     "run": "lint:all, test"
   },
   "dependencies": {
+    "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
+    "immutable": "^3.8.2",
     "jwt-decode": "^2.2.0",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "react-router-redux": "^5.0.0-alpha.9",
-    "redux": "^3.7.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
     "redux-form": "^7.2.1",
     "redux-form-saga": "^0.2.0",
+    "redux-immutable": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "redux-seamless-immutable": "^0.3.2",
@@ -145,65 +147,6 @@
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
       "\\.(css)$": "<rootDir>/tools/assetsTransformer.js"
-    }
-  },
-  "eslintConfig": {
-    "extends": "airbnb-base",
-    "parser": "babel-eslint",
-    "env": {
-      "browser": true,
-      "node": true,
-      "es6": true,
-      "jest/globals": true
-    },
-    "plugins": [
-      "react",
-      "jest"
-    ],
-    "rules": {
-      "comma-dangle": 0,
-      "import/imports-first": 0,
-      "global-require": 0,
-      "class-methods-use-this": 0,
-      "arrow-body-style": [
-        2,
-        "as-needed"
-      ],
-      "arrow-parens": [
-        "error",
-        "always"
-      ],
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true
-        }
-      ],
-      "no-debugger": 0,
-      "no-console": 0,
-      "new-cap": 0,
-      "strict": 0,
-      "no-param-reassign": [
-        "error",
-        {
-          "props": false
-        }
-      ],
-      "no-underscore-dangle": 0,
-      "no-use-before-define": 0,
-      "eol-last": 0,
-      "no-shadow": 0,
-      "quotes": [
-        2,
-        "single"
-      ],
-      "jsx-quotes": [
-        0,
-        "prefer-single"
-      ],
-      "react/jsx-no-undef": 1,
-      "react/jsx-uses-react": 1,
-      "react/jsx-uses-vars": 1
     }
   },
   "stylelint": {
