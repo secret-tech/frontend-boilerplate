@@ -3,7 +3,7 @@ import webpack from 'webpack';
 
 import HtmlPlugin from 'html-webpack-plugin';
 import DotenvPlugin from 'dotenv-webpack';
-// import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
+import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
 
 const mode = 'development';
 const target = 'web';
@@ -39,7 +39,7 @@ const plugins = [
     __DEV__: true
   }),
   new webpack.HotModuleReplacementPlugin(),
-  // new StylelintWebpackPlugin(),
+  new StylelintWebpackPlugin(),
   new HtmlPlugin({
     template: 'src/index.html',
     minify: {

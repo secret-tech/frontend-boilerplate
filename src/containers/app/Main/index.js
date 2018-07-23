@@ -35,14 +35,8 @@ const Main = (props) => {
   );
 };
 
-const ConnectedComponent = connect(
-  (state) => ({
-    counter: state.get('app').get('counter').get('counter')
-  }),
-  {
-    increment,
-    decrement
-  }
-)(ToJS(Main));
+const mapStateToProps = (state) => ({ counter: state.get('app').get('counter').get('counter') });
+
+const ConnectedComponent = connect(mapStateToProps, { increment, decrement })(ToJS(Main));
 const ComponentWithRouter = withRouter(ConnectedComponent);
 export default ComponentWithRouter;
