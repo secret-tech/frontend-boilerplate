@@ -10,7 +10,7 @@ import Dashboard from '../../../components/app/Dashboard';
 import Settings from '../../../components/app/Settings';
 
 // import * as routes from '../../../routes';
-// import s from './styles.scss';
+import s from './styles.scss';
 
 const Main = (props) => {
   const {
@@ -26,7 +26,7 @@ const Main = (props) => {
         <Route exact path="/" component={Dashboard}/>
         <Route exact path="/settings" component={Settings}/>
       </Switch>
-      <div>
+      <div className={s.counter}>
         counter: {counter}
         <button onClick={() => increment()}>increment</button>
         <button onClick={() => decrement()}>decrement</button>

@@ -1,36 +1,41 @@
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import WebpackMd5Hash from 'webpack-md5-hash';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import Dotenv from 'dotenv-webpack';
 import path from 'path';
+import webpack from 'webpack';
+
+import HtmlPlugin from 'html-webpack-plugin';
+import DotenvPlugin from 'dotenv-webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
+const mode = 'production';
+const target = 'web';
+const devtool = 'source-map';
+const resolve = { extensions: ['*', '.js', '.jsx', '.json'] };
 
 const entry = [
   'babel-polyfill',
   path.resolve(__dirname, '../../src/index')
 ];
-const target = 'web';
+
 const output = {
   path: path.resolve(__dirname, '../../dist'),
   publicPath: '/',
-  filename: '[name].[chunkhash].js'
+  filename: '[name].[contenthash].js'
 };
-const devtool = 'source-map';
-const resolve = { extensions: ['*', '.js', '.jsx', '.json'] };
+
+const optimization = {
+  minimize: true
+};
 
 const plugins = [
-  new Dotenv({
+  new DotenvPlugin({
     path: '.env',
     systemvars: true
   }),
-  new WebpackMd5Hash(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('production'),
     __DEV__: false
   }),
-  new ExtractTextPlugin('[name].[contenthash].css'),
-  new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-  new HtmlWebpackPlugin({
+  new MiniCssExtractPlugin('[name].[contenthash].css'),
+  new HtmlPlugin({
     template: 'src/index.html',
     favicon: 'src/assets/favicon.png',
     minify: {
@@ -56,44 +61,36 @@ const rules = [
     use: ['babel-loader']
   },
   {
-    test: /\.css?$/,
+    test: /\.scss?$/,
     include: /src/,
     exclude: /src\/assets/,
-    use: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: [
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            importLoaders: 1,
-            localIdentName: '[local]__[hash:base64:5]',
-            minimize: true,
-            sourceMap: true
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: true,
-            config: { path: 'tools/postcss.config.js' }
-          }
+    use: [
+      MiniCssExtractPlugin.loader,
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          importLoaders: 1,
+          localIdentName: '[local]__[hash:base64:5]',
+          sourceMap: true
         }
-      ]
-    })
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          config: { path: 'tools/postcss.config.js' }
+        }
+      },
+      'sass-loader'
+    ]
   },
   {
     test: /\.css?$/,
     include: /(src\/assets|node_modules)/,
-    use: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: [
-        {
-          loader: 'css-loader',
-          options: { minimize: true }
-        }
-      ]
-    })
+    use: [
+      MiniCssExtractPlugin.loader,
+      'css-loader'
+    ]
   },
   {
     test: /\.(jpe?g|png|gif|ico)$/i,
@@ -143,6 +140,8 @@ const rules = [
 ];
 
 export default {
+  mode,
+  optimization,
   entry,
   target,
   output,

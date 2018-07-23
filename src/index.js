@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import { AppContainer } from 'react-hot-loader';
 
-import Main from './containers/app/Main';
-
-// import 'normalize.css';
+import 'normalize.css';
 import './assets/main.css';
 import './assets/fonts/Roboto/stylesheet.css';
+
+import Main from './containers/app/Main';
 
 import { history, store } from './redux/configureStore';
 
