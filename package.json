@@ -22,22 +22,28 @@
     "run": "lint:all, test"
   },
   "dependencies": {
+    "connected-react-router": "^4.3.0",
     "history": "^4.7.2",
+    "immutable": "^3.8.2",
     "jwt-decode": "^2.2.0",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "react-router-redux": "^5.0.0-alpha.9",
-    "redux": "^3.7.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
     "redux-form": "^7.2.1",
     "redux-form-saga": "^0.2.0",
+    "redux-immutable": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
-    "redux-seamless-immutable": "^0.3.2",
-    "seamless-immutable": "^7.1.2",
+    "sass-loader": "^7.0.3",
+    "stylelint": "^9.3.0",
+    "stylelint-config-css-modules": "^1.3.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -69,11 +75,12 @@
     "eslint-plugin-jest": "^21.7.0",
     "eslint-plugin-react": "^7.5.1",
     "eslint-watch": "^3.1.3",
-    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^22.1.3",
     "jest-cli": "^22.1.3",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.2",
     "postcss": "^6.0.16",
     "postcss-assets": "^5.0.0",
     "postcss-clearfix": "^2.0.1",
@@ -87,16 +94,11 @@
     "react-hot-loader": "^3.1.3",
     "rimraf": "^2.6.2",
     "style-loader": "^0.19.1",
-    "stylelint": "^8.4.0",
-    "stylelint-config-css-modules": "^1.1.0",
-    "stylelint-config-standard": "^18.0.0",
-    "stylelint-webpack-plugin": "^0.10.1",
     "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
+    "webpack": "^4.16.2",
     "webpack-bundle-analyzer": "^2.9.2",
-    "webpack-dev-middleware": "^2.0.4",
-    "webpack-hot-middleware": "^2.21.0",
-    "webpack-md5-hash": "^0.0.6"
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-hot-middleware": "^2.22.3"
   },
   "babel": {
     "env": {
@@ -146,97 +148,5 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
       "\\.(css)$": "<rootDir>/tools/assetsTransformer.js"
     }
-  },
-  "eslintConfig": {
-    "extends": "airbnb-base",
-    "parser": "babel-eslint",
-    "env": {
-      "browser": true,
-      "node": true,
-      "es6": true,
-      "jest/globals": true
-    },
-    "plugins": [
-      "react",
-      "jest"
-    ],
-    "rules": {
-      "comma-dangle": 0,
-      "import/imports-first": 0,
-      "global-require": 0,
-      "class-methods-use-this": 0,
-      "arrow-body-style": [
-        2,
-        "as-needed"
-      ],
-      "arrow-parens": [
-        "error",
-        "always"
-      ],
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true
-        }
-      ],
-      "no-debugger": 0,
-      "no-console": 0,
-      "new-cap": 0,
-      "strict": 0,
-      "no-param-reassign": [
-        "error",
-        {
-          "props": false
-        }
-      ],
-      "no-underscore-dangle": 0,
-      "no-use-before-define": 0,
-      "eol-last": 0,
-      "no-shadow": 0,
-      "quotes": [
-        2,
-        "single"
-      ],
-      "jsx-quotes": [
-        0,
-        "prefer-single"
-      ],
-      "react/jsx-no-undef": 1,
-      "react/jsx-uses-react": 1,
-      "react/jsx-uses-vars": 1
-    }
-  },
-  "stylelint": {
-    "extends": [
-      "stylelint-config-standard",
-      "stylelint-config-css-modules"
-    ],
-    "rules": {
-      "color-named": "never",
-      "font-family-name-quotes": "always-where-required",
-      "font-weight-notation": "named-where-possible",
-      "function-url-no-scheme-relative": true,
-      "function-url-quotes": "always",
-      "string-quotes": "single",
-      "value-keyword-case": "lower",
-      "unit-blacklist": [],
-      "max-empty-lines": 2,
-      "no-descending-specificity": true,
-      "no-duplicate-selectors": true,
-      "at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "use",
-            "for"
-          ]
-        }
-      ]
-    },
-    "ignoreFiles": [
-      "node_modules/*",
-      "src/assets/**"
-    ],
-    "defaultSeverity": "error"
   }
 }

@@ -1,24 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
+import { ConnectedRouter } from 'connected-react-router/immutable';
 import { AppContainer } from 'react-hot-loader';
 
 import 'normalize.css';
 import './assets/main.css';
 import './assets/fonts/Roboto/stylesheet.css';
 
-import configureStore, { history } from './redux/configureStore';
-import routes from './routes';
+import Main from './containers/app/Main';
 
-const store = configureStore({});
+import { history, store } from './redux/configureStore';
 
 const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          {routes}
+          <Main/>
         </ConnectedRouter>
       </Provider>
     </AppContainer>,

@@ -1,13 +1,12 @@
-import { combineReducers, routerReducer as routing } from 'redux-seamless-immutable';
+import { combineReducers } from 'redux-immutable';
 import { reducer as form } from 'redux-form';
 
-import app from './modules/app/app';
+import counter from './modules/app/counter';
 
 export default combineReducers({
-  routing,
   form,
 
   app: combineReducers({
-    app
+    counter
   })
 });

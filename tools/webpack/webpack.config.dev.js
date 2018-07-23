@@ -1,8 +1,14 @@
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
-import Dotenv from 'dotenv-webpack';
 import path from 'path';
+import webpack from 'webpack';
+
+import HtmlPlugin from 'html-webpack-plugin';
+import DotenvPlugin from 'dotenv-webpack';
+import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
+
+const mode = 'development';
+const target = 'web';
+const devtool = 'cheap-module-eval-source-map';
+const resolve = { extensions: ['*', '.js', '.jsx', '.json'] };
 
 const entry = [
   path.resolve(__dirname, '../../src/webpack-public-path'),
@@ -11,17 +17,20 @@ const entry = [
   'babel-polyfill',
   path.resolve(__dirname, '../../src/index.js')
 ];
-const target = 'web';
+
 const output = {
   path: path.resolve(__dirname, 'dist'),
   publicPath: '/',
   filename: 'bundle.js'
 };
-const devtool = 'cheap-module-eval-source-map';
-const resolve = { extensions: ['*', '.js', '.jsx', '.json'] };
+
+const optimization = {
+  minimize: false,
+  noEmitOnErrors: true
+};
 
 const plugins = [
-  new Dotenv({
+  new DotenvPlugin({
     path: '.env',
     systemvars: true
   }),
@@ -30,9 +39,8 @@ const plugins = [
     __DEV__: true
   }),
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoEmitOnErrorsPlugin(),
   new StylelintWebpackPlugin(),
-  new HtmlWebpackPlugin({
+  new HtmlPlugin({
     template: 'src/index.html',
     minify: {
       removeComments: true,
@@ -49,7 +57,7 @@ const rules = [
     use: ['babel-loader']
   },
   {
-    test: /\.css?$/,
+    test: /\.scss?$/,
     include: /src/,
     exclude: /src\/assets/,
     use: [
@@ -68,15 +76,16 @@ const rules = [
         options: {
           config: { path: 'tools/postcss.config.js' }
         }
-      }
+      },
+      'sass-loader'
     ]
   },
   {
     test: /\.css$/,
     include: /(src\/assets|node_modules)/,
     use: [
-      { loader: 'style-loader' },
-      { loader: 'css-loader' }
+      'style-loader',
+      'css-loader'
     ]
   },
   {
@@ -131,6 +140,8 @@ const rules = [
 ];
 
 export default {
+  mode,
+  optimization,
   entry,
   target,
   output,

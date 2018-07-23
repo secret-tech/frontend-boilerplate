@@ -1,6 +1,6 @@
 import { all, takeEvery, call, fork } from 'redux-saga/effects';
 
-import { INCREMENT, DECREMENT } from '../../redux/modules/app/app';
+import { INCREMENT, DECREMENT } from '../../redux/modules/app/counter';
 
 /**
  * Increment Saga
