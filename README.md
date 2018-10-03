@@ -1,3 +1,8 @@
+# DEPRECATED
+
+We recommend to use [Create React app](https://github.com/facebook/create-react-app)
+
+
 # Frontend static boilerplate
 
 A simple boilerplate to create frontend applications.
